@@ -1,5 +1,5 @@
 import { BasePaymentMethod } from "./basePaymentMethod";
-import { AllPaymentMethods } from "../types";
+import { AllPaymentMethods, DiscountPaymentMethod } from "../types";
 import { ProductInv } from "./productInv";
 
 export class Buy {
@@ -22,5 +22,16 @@ export class Buy {
     this.id_supplier = buyId_supplier;
   }
 
-  //   public calculateTotal(): number {}
+  public calculateTotal(paymentMethod: AllPaymentMethods): number {
+    const initialValue = 0;
+    let sumWithInitial = this.product.reduce(
+      (total = 0, prod) => total + prod.price,
+      initialValue
+    );
+    if (paymentMethod === DiscountPaymentMethod.CASH) {
+      const totalWithDiscount = sumWithInitial * 0.9;
+      sumWithInitial = sumWithInitial - totalWithDiscount;
+    }
+    return sumWithInitial;
+  }
 }

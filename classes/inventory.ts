@@ -31,7 +31,7 @@ export class Inventory {
     }
   }
 
-  private checkExistences(): void {
+  public checkExistences(): void {
     this.prodInventory.some((prod) => {
       if (prod.prodInvQuantity === 0) {
         console.log("No hay stock.");
@@ -39,5 +39,5 @@ export class Inventory {
     });
   }
 
-  //Debería devolver el id del producto que no tiene stock?
+  //Se realiza al final de cada venta y devuelve un mensaje si un producto tiene menos de cierto stock.
 }

@@ -17,6 +17,7 @@ import { Shift } from "./types";
 import { Supplier } from "./classes/supplier";
 import { Sell } from "./classes/sell";
 import { AllPaymentMethods } from "./types";
+import { Buy } from "./classes/buy";
 
 const basePaymentMethod: BasePaymentMethod<BasePaymentMethods> =
   new BasePaymentMethod(BasePaymentMethods.WIRE_TRANSFER);
@@ -72,6 +73,13 @@ const sell: Sell = new Sell(
 );
 const payment = new PaymentMethodDiscount(DiscountPaymentMethod.CASH);
 
+const buy: Buy = new Buy(
+  new BasePaymentMethod(BasePaymentMethods.DEBIT_CARD),
+  new Date(),
+  [productInv, productInv1],
+  supplier.id
+);
+
 console.log("PAYMENT", basePaymentMethod);
 console.log("DISCOUNT", discountPaymentMethod);
 console.log("INSTALLMENT", installmentPayment);
@@ -82,4 +90,13 @@ console.log("PERSON", person);
 console.log("EMPLOYEE", employee);
 console.log("SUPPLIER", supplier);
 console.log("SELL", sell);
+console.log("BUY", buy);
 console.log("DISCOUNT", payment.getDiscount(OperationType.buy));
+console.log(
+  "TOTAL SELL WITH DISCOUNT",
+  sell.calculateTotal(DiscountPaymentMethod.CASH)
+);
+console.log(
+  "TOTAL BUY WHIT DISCOUNT",
+  buy.calculateTotal(DiscountPaymentMethod.CASH)
+);
