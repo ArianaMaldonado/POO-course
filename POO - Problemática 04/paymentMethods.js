@@ -1,3 +1,7 @@
+var PaymentMethods = function (type) {
+  this.type = type;
+};
+
 var allPaymentMethods = [
   "DEBITO",
   "BILLETERA SANTA FE",
@@ -5,11 +9,6 @@ var allPaymentMethods = [
   "CREDITO",
   "EFECTIVO",
 ];
-
-var PaymentMethods = function (type) {
-  this.type = type;
-};
-
 PaymentMethods.prototype.getType = function () {
   return this.type;
 };
@@ -21,7 +20,5 @@ PaymentMethods.prototype.setType = function (type) {
     }
   }
 };
-
-PaymentMethods.prototype.checkPaymentMethod = function (allPaymentMethods) {};
 
 module.exports = { PaymentMethods };
