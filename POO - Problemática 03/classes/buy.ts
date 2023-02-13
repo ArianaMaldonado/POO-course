@@ -11,13 +11,12 @@ export class Buy {
 
   constructor(
     buyPaymentMethod: BasePaymentMethod<AllPaymentMethods>,
-    buyDate: Date,
     buyProducts: ProductInv[],
     buyId_supplier: number
   ) {
     this.id = Math.floor(Math.random() * 10000);
     this.paymentMethod = buyPaymentMethod;
-    this.date = buyDate;
+    this.date = new Date();
     this.product = buyProducts;
     this.id_supplier = buyId_supplier;
   }

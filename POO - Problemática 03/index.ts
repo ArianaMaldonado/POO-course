@@ -28,7 +28,7 @@ const installmentPayment: PaymentMethodInstallment =
   new PaymentMethodInstallment(InstallmentPayment.CREDIT_CARD, 3);
 const product: Product = new Product(
   "Sprite",
-  "Coca Cola",
+  "Coca Cola Company",
   Categories.COLAS,
   "1L",
   550
@@ -75,7 +75,6 @@ const payment = new PaymentMethodDiscount(DiscountPaymentMethod.CASH);
 
 const buy: Buy = new Buy(
   new BasePaymentMethod(BasePaymentMethods.DEBIT_CARD),
-  new Date(),
   [productInv, productInv1],
   supplier.id
 );

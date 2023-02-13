@@ -3,7 +3,13 @@ import { Sell } from "./sell";
 import { Buy } from "./buy";
 import { Employee } from "./employee";
 import { Supplier } from "./supplier";
-import { ProductPurchase } from "../types";
+import {
+  AllPaymentMethods,
+  BasePaymentMethods,
+  DiscountPaymentMethod,
+  InstallmentPayment,
+  ProductPurchase,
+} from "../types";
 
 export class Kiosco {
   id: number;
@@ -43,10 +49,11 @@ export class Kiosco {
     this.suppliers = kSuppliers;
   }
 
-  //   public makePurchase(
-  //     supplier: Supplier,
-  //     product_info: ProductPurchase[]
-  //   ): void {}
+  // public makePurchase(supplier: Supplier, products_buy: ProductInv[], payment_method: DiscountPaymentMethod | InstallmentPayment | BasePaymentMethods){
+  //   const newPurchase: Buy = new Buy(payment_method, products_buy, supplier.id) {
+
+  //   }
+  // }
 
   //   public initiateSale(): void {}
 
